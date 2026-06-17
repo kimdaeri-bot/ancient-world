@@ -2,7 +2,7 @@
   "name": "ancient-world",
   "version": "0.1.0",
   "private": true,
-  "description": "Ancient World — AR 고대 유적지 복원 콘텐츠를 학교 세계사 수업으로 연결하는 에듀테크 미들웨어",
+  "description": "Ancient World — 고대 유적을 지역별로 둘러보는 콘텐츠 가이드",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
@@ -13,10 +13,7 @@
   "dependencies": {
     "next": "14.2.5",
     "react": "18.3.1",
-    "react-dom": "18.3.1",
-    "qrcode.react": "4.1.0",
-    "@supabase/supabase-js": "2.45.4",
-    "@supabase/ssr": "0.5.1"
+    "react-dom": "18.3.1"
   },
   "devDependencies": {
     "@types/node": "20.14.10",

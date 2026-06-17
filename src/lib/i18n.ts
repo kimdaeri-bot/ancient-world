@@ -9,45 +9,56 @@ export function resolveLocale(input?: string | string[]): Locale {
   return raw === "en" ? "en" : DEFAULT_LOCALE;
 }
 
+/** 현재 로케일을 유지한 채 경로에 ?lang= 을 붙인다 (ko는 기본이라 생략) */
+export function withLang(path: string, locale: Locale): string {
+  if (locale !== "en") return path;
+  return `${path}${path.includes("?") ? "&" : "?"}lang=en`;
+}
+
 type UIStrings = {
-  start: string;
-  moving: string;
+  appName: string;
+  kicker: string;
+  heroTitle: string;
+  heroSubtitle: string;
+  allRegions: string;
+  viewDetail: string;
+  exploreRegion: string;
+  back: string;
+  nearbyTitle: string;
   notFoundTitle: string;
   notFoundBody: string;
-  // 교사용 인덱스 페이지
-  teacherTitle: string;
-  teacherIntro: string;
-  teacherHowto: string;
-  openLauncher: string;
-  copyLink: string;
-  copied: string;
+  backHome: string;
 };
 
 export const UI: Record<Locale, UIStrings> = {
   ko: {
-    start: "시작하기",
-    moving: "이동 중…",
+    appName: "Ancient World",
+    kicker: "ANCIENT WORLD",
+    heroTitle: "고대 세계를,\n눈앞에서.",
+    heroSubtitle:
+      "역사 속으로 사라진 고대 유적을 있는 그대로 다시 만나보세요. 지역을 골라 둘러봅니다.",
+    allRegions: "전체",
+    viewDetail: "자세히 보기",
+    exploreRegion: "지역별로 둘러보기",
+    back: "둘러보기로",
+    nearbyTitle: "같은 지역의 다른 유적",
     notFoundTitle: "콘텐츠를 찾을 수 없어요",
-    notFoundBody: "QR 주소를 다시 확인하거나 선생님께 문의하세요.",
-    teacherTitle: "수업용 QR",
-    teacherIntro:
-      "수업할 유적의 QR을 교실 화면에 띄우세요. 학생들이 폰으로 스캔하면 바로 시작됩니다. 앱 설치는 필요 없습니다.",
-    teacherHowto: "QR을 화면에 띄움 → 학생이 스캔 → 시작하기 → AR 답사 시작",
-    openLauncher: "런처 열기",
-    copyLink: "링크 복사",
-    copied: "복사됨",
+    notFoundBody: "주소를 다시 확인해 주세요.",
+    backHome: "홈으로",
   },
   en: {
-    start: "Start",
-    moving: "Loading…",
+    appName: "Ancient World",
+    kicker: "ANCIENT WORLD",
+    heroTitle: "The ancient world,\nbefore your eyes.",
+    heroSubtitle:
+      "Meet the lost monuments of antiquity as they once stood. Choose a region and explore.",
+    allRegions: "All",
+    viewDetail: "Learn more",
+    exploreRegion: "Explore by region",
+    back: "Back to explore",
+    nearbyTitle: "More in this region",
     notFoundTitle: "Content not found",
-    notFoundBody: "Please check the QR address or ask your teacher.",
-    teacherTitle: "Classroom QR",
-    teacherIntro:
-      "Project the QR for the site you're teaching. Students scan it with their phones and start instantly — no app install required.",
-    teacherHowto: "Show QR on screen → students scan → Start → AR tour begins",
-    openLauncher: "Open launcher",
-    copyLink: "Copy link",
-    copied: "Copied",
+    notFoundBody: "Please check the address and try again.",
+    backHome: "Back home",
   },
 };
