@@ -455,6 +455,40 @@ export const SITES: Record<string, Site> = {
   },
 };
 
+// 콘텐츠 가격 (1회 결제 · 평생 소장). 데모용 단일 가격.
+export const PRICE_KRW = 4900;
+
+// 투어 소요 시간(분) — 레퍼런스(JSON-LD duration) 실측값
+const DURATION_MIN: Record<string, number> = {
+  athens: 42,
+  corinth: 18,
+  delphi: 23,
+  epidauros: 15,
+  olympia: 18,
+  sounion: 12,
+  rome: 58,
+  ostia: 30,
+  pompeii: 34,
+  barcelona: 16,
+  valencia: 25,
+  "renaissance-madrid": 30,
+  lisbon: 25,
+  lyon: 11,
+  "maison-carree": 3,
+  pula: 20,
+  split: 9,
+  jerusalem: 59,
+  masada: 16,
+  "jack-the-ripper": 20,
+  stonehenge: 30,
+  pisidia: 61,
+  "old-hobart-town": 33,
+};
+
+export function getDurationMin(slug: string): number {
+  return DURATION_MIN[slug] ?? 0;
+}
+
 export function getSite(slug: string): Site | undefined {
   return SITES[slug];
 }
