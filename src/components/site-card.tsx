@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import type { Locale, Site } from "@/lib/sites";
-import { getSiteContent, type Region } from "@/lib/sites";
+import { getSiteContent, REGION_LABEL } from "@/lib/sites";
 import { UI, withLang } from "@/lib/i18n";
 
 interface SiteCardProps {
@@ -10,12 +10,6 @@ interface SiteCardProps {
   /** 같은 지역 더보기 등에 쓰는 컴팩트 변형 */
   compact?: boolean;
 }
-
-const REGION_TAG: Record<Region, Record<Locale, string>> = {
-  italy: { ko: "이탈리아", en: "Italy" },
-  greece: { ko: "그리스", en: "Greece" },
-  egypt: { ko: "이집트", en: "Egypt" },
-};
 
 // Apple 화이트 피처 카드 — 테두리·그림자 없이 색 대비로 떠오른다.
 // 이미지 위에서만 부드러운 그림자, 카드 hover 시 미세 상승.
@@ -43,7 +37,7 @@ export default function SiteCard({ site, locale, compact = false }: SiteCardProp
           className="text-ink-faint"
           style={{ fontSize: "12px", fontWeight: 600, letterSpacing: "0.04em", textTransform: "uppercase" }}
         >
-          {REGION_TAG[site.region][locale]}
+          {REGION_LABEL[site.region][locale]}
         </p>
         <h3
           className="mt-1 text-ink"
